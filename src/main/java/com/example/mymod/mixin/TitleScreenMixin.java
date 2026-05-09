@@ -24,10 +24,10 @@ public class TitleScreenMixin {
         /*baseString = baseString.replace("%LOADER%", "Legacy Forge");
         *///?}
 
-        //? if 1.21.4 {
-        /*baseString = baseString.replace("%MINECRAFT%", "1.21.4");
-        *///?} else if 1.20.1 {
-        /*baseString = baseString.replace("%MINECRAFT", "1.20.1");
+        //? if 1.21.1 {
+        /*baseString = baseString.replace("%MINECRAFT%", "1.21.1");
+        *///?} else if 26.1.2 {
+        /*baseString = baseString.replace("%MINECRAFT", "26.1.2");
         *///?}
 
         ExampleMod.LOGGER.info(baseString);

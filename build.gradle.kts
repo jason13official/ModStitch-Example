@@ -15,9 +15,8 @@ modstitch {
     // Alternatively use stonecutter.eval if you have a lot of versions to target.
     // https://stonecutter.kikugie.dev/stonecutter/guide/setup#checking-versions
     javaTarget = when (minecraft) {
-        "1.20.1" -> 17
         "1.21.1" -> 21
-        "1.21.4" -> 21
+        "26.1.2" -> 25
         else -> throw IllegalArgumentException("Please store the java version for ${property("deps.minecraft")} in build.gradle.kts!")
     }
 
@@ -45,9 +44,8 @@ modstitch {
             // modstitch doesn't initially support. Some examples below.
             put("mod_issue_tracker", "https://github.com/modunion/modstitch/issues")
             put("pack_format", when (property("deps.minecraft")) {
-                "1.20.1" -> 15
                 "1.21.1" -> 48
-                "1.21.4" -> 61
+                "26.1.2" -> 101.1
                 else -> throw IllegalArgumentException("Please store the resource pack version for ${property("deps.minecraft")} in build.gradle.kts! https://minecraft.wiki/w/Pack_format")
             }.toString())
         }
@@ -117,7 +115,7 @@ stonecutter {
 // use the modstitch.createProxyConfigurations(sourceSets["client"]) function.
 dependencies {
     modstitch.loom {
-        modstitchModImplementation("net.fabricmc.fabric-api:fabric-api:0.112.0+1.21.4")
+        modstitchModImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     }
 
     // Anything else in the dependencies block will be used for all platforms.
