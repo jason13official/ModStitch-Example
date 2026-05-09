@@ -1,4 +1,3 @@
-//? if !vanilla {
 package com.example.mymod.mixin;
 
 import com.example.mymod.ExampleMod;
@@ -25,12 +24,11 @@ public class TitleScreenMixin {
         *///?}
 
         //? if 1.21.1 {
-        /*baseString = baseString.replace("%MINECRAFT%", "1.21.1");
-        *///?} else if 26.1.2 {
+        baseString = baseString.replace("%MINECRAFT%", "1.21.1");
+        //?} else if 26.1.2 {
         /*baseString = baseString.replace("%MINECRAFT", "26.1.2");
         *///?}
 
         ExampleMod.LOGGER.info(baseString);
     }
 }
-//?}
