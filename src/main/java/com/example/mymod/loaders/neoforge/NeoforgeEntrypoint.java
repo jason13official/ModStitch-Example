@@ -1,5 +1,5 @@
 //? if neoforge {
-/*package com.example.mymod.loaders.neoforge;
+package com.example.mymod.loaders.neoforge;
 
 import com.example.mymod.ExampleMod;
 import com.mojang.logging.LogUtils;
@@ -15,4 +15,4 @@ public class NeoforgeEntrypoint {
         ExampleMod.initialize();
     }
 }
-*///?}
+//?}

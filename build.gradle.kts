@@ -16,6 +16,7 @@ modstitch {
     // https://stonecutter.kikugie.dev/stonecutter/guide/setup#checking-versions
     javaTarget = when (minecraft) {
         "1.20.1" -> 17
+        "1.21.1" -> 21
         "1.21.4" -> 21
         else -> throw IllegalArgumentException("Please store the java version for ${property("deps.minecraft")} in build.gradle.kts!")
     }
@@ -45,7 +46,8 @@ modstitch {
             put("mod_issue_tracker", "https://github.com/modunion/modstitch/issues")
             put("pack_format", when (property("deps.minecraft")) {
                 "1.20.1" -> 15
-                "1.21.4" -> 46
+                "1.21.1" -> 48
+                "1.21.4" -> 61
                 else -> throw IllegalArgumentException("Please store the resource pack version for ${property("deps.minecraft")} in build.gradle.kts! https://minecraft.wiki/w/Pack_format")
             }.toString())
         }
@@ -66,7 +68,6 @@ modstitch {
     // ModDevGradle (NeoForge, Forge, Forgelike)
     moddevgradle {
         enable {
-            prop("deps.forge") { forgeVersion = it }
             prop("deps.neoform") { neoFormVersion = it }
             prop("deps.neoforge") { neoForgeVersion = it }
             prop("deps.mcp") { mcpVersion = it }
@@ -106,7 +107,6 @@ stonecutter {
     consts(
         "fabric" to constraint.equals("fabric"),
         "neoforge" to constraint.equals("neoforge"),
-        "forge" to constraint.equals("forge"),
         "vanilla" to constraint.equals("vanilla")
     )
 }
