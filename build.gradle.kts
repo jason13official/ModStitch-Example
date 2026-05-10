@@ -127,6 +127,17 @@ stonecutter {
         put("fabric", modstitch.isLoom)
         put("neoforge", modstitch.isModDevGradleRegular)
     }
+
+    replacements {
+        string {
+            direction = eval(current.version, ">=1.21.11")
+            replace("ResourceLocation", "Identifier")
+        }
+        string {
+            direction = eval(current.version, ">=1.21.11")
+            replace("import net.minecraft.Util;", "import net.minecraft.util.Util;")
+        }
+    }
 }
 
 java {

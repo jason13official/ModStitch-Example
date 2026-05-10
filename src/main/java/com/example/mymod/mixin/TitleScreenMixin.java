@@ -9,26 +9,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin {
-    @Inject(method = "init", at = @At("HEAD"))
-    public void initMixinExample(CallbackInfo ci) {
-        String baseString = "Hello from %LOADER% on Minecraft %MINECRAFT%";
 
-        /// https://stonecutter.kikugie.dev/stonecutter/guide/comments
+  @Inject(method = "init", at = @At("HEAD"))
+  public void initMixinExample(CallbackInfo ci) {
+    String baseString = "Hello from %LOADER% on Minecraft %MINECRAFT%";
 
-        //? if fabric {
-        /*baseString = baseString.replace("%LOADER%", "Fabric Loader");
-        *///?} else if neoforge {
-        baseString = baseString.replace("%LOADER%", "NeoForge");
-        //?} else {
-        /*baseString = baseString.replace("%LOADER%", "Legacy Forge");
-        *///?}
+    /// https://stonecutter.kikugie.dev/stonecutter/guide/comments
 
-        //? if 1.21.1 {
-        baseString = baseString.replace("%MINECRAFT%", "1.21.1");
-        //?} else if 26.1.2 {
-        /*baseString = baseString.replace("%MINECRAFT", "26.1.2");
-        *///?}
+    //? if fabric {
+    baseString = baseString.replace("%LOADER%", "Fabric Loader");
+     //?} else if neoforge {
+    /*baseString = baseString.replace("%LOADER%", "NeoForge");
+    *///?} else {
+    /*baseString = baseString.replace("%LOADER%", "Legacy Forge");
+     *///?}
 
-        ExampleMod.LOGGER.info(baseString);
-    }
+    //? if 1.21.1 {
+    /*baseString = baseString.replace("%MINECRAFT%", "1.21.1");
+    *///?} else if 26.1.2 {
+    baseString = baseString.replace("%MINECRAFT", "26.1.2");
+     //?}
+
+    ExampleMod.LOGGER.info(baseString);
+  }
 }

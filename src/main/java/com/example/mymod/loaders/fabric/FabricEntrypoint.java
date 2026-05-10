@@ -1,18 +1,23 @@
 //? if fabric {
-/*package com.example.mymod.loaders.fabric;
+package com.example.mymod.loaders.fabric;
 
-import com.example.mymod.ExampleMod;
-import com.mojang.logging.LogUtils;
+import com.example.mymod.impl.registry.ModItems;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import net.fabricmc.api.ModInitializer;
-import org.slf4j.Logger;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 
 public class FabricEntrypoint implements ModInitializer {
-    private static final Logger LOGGER = LogUtils.getLogger();
 
-    @Override
-    public void onInitialize() {
-        LOGGER.info("Hello from FabricEntrypoint!");
-        ExampleMod.initialize();
-    }
+  @Override
+  public void onInitialize() {
+    bind(BuiltInRegistries.ITEM, ModItems::register);
+  }
+
+  public <T> void bind(Registry<T> registry, Consumer<BiConsumer<T, Identifier>> source) {
+    source.accept((t, id) -> Registry.register(registry, id, t));
+  }
 }
-*///?}
+//?}
