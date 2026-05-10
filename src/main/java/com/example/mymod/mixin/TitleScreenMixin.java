@@ -12,7 +12,8 @@ public class TitleScreenMixin {
 
   @Inject(method = "init", at = @At("HEAD"))
   public void initMixinExample(CallbackInfo ci) {
-    String baseString = "Hello from %LOADER% on Minecraft %MINECRAFT%";
+
+    String baseString = "Hello from %LOADER% on %MINECRAFT%!";
 
     /// https://stonecutter.kikugie.dev/stonecutter/guide/comments
 
@@ -27,7 +28,9 @@ public class TitleScreenMixin {
     //? if 1.21.1 {
     baseString = baseString.replace("%MINECRAFT%", "1.21.1");
     //?} else if 26.1.2 {
-    /*baseString = baseString.replace("%MINECRAFT", "26.1.2");
+    /*baseString = baseString.replace("%MINECRAFT%", "26.1.2");
+     *///?} else {
+    /*baseString = baseString.replace("%MINECRAFT%", "1.20.1");
      *///?}
 
     ExampleMod.LOGGER.info(baseString);

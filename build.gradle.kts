@@ -80,8 +80,16 @@ modstitch {
     // ModDevGradle (NeoForge, Forge, Forgelike)
     moddevgradle {
 
-        if (sc.current.project.endsWith("neoforge")) { neoForgeVersion = "${property("deps.neoforge")}" }
-        else { forgeVersion = "${property("deps.forge")}" }
+        if (sc.current.project.endsWith("neoforge")) {
+
+            if (sc.current.parsed eq "1.21.1") { neoFormVersion = "1.21.1-20240808.144430" }
+            else if (sc.current.parsed eq "26.1.2") { neoFormVersion = "26.1.2-1" }
+
+            neoForgeVersion = "${property("deps.neoforge")}"
+        } else
+        {
+            forgeVersion = "${property("deps.forge")}"
+        }
 
 //        enable {
 //            prop("deps.neoform") { neoFormVersion = it }
