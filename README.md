@@ -1,7 +1,5 @@
-# Modstitch Stonecutter Template
+# Jason13's Modstitch Stonecutter Template
 
-`gradle clean build -Dorg.gradle.java.home='C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot'`
+Refactoring a project like this is a PITA when 75% of the code is commented out.
 
-This is the recommended template for using Modstitch.
-
-Refer to the modstitch documentation for setup instructions.
+Not recommended.
