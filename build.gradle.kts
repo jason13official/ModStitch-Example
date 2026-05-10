@@ -57,8 +57,9 @@ modstitch {
             // modstitch doesn't initially support. Some examples below.
             put("mod_issue_tracker", "https://github.com/modunion/modstitch/issues")
             put("pack_format", when (property("deps.minecraft")) {
-                "1.21.1" -> 48
-                "26.1.2" -> 101.1
+                "1.20.1" -> 14
+                "1.21.1" -> 14
+                "26.1.2" -> 14
                 else -> throw IllegalArgumentException("Please store the resource pack version for ${property("deps.minecraft")} in build.gradle.kts! https://minecraft.wiki/w/Pack_format")
             }.toString())
         }
@@ -79,7 +80,8 @@ modstitch {
     // ModDevGradle (NeoForge, Forge, Forgelike)
     moddevgradle {
 
-        neoForgeVersion = "${property("deps.neoforge")}"
+        if (sc.current.project.endsWith("neoforge")) { neoForgeVersion = "${property("deps.neoforge")}" }
+        else { forgeVersion = "${property("deps.forge")}" }
 
 //        enable {
 //            prop("deps.neoform") { neoFormVersion = it }
